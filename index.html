@@ -5,12 +5,11 @@
 body{
     font-family: sans-serif;
     background:#223344;
-}
-h1{
     color:#fff;
 }
 #base{
     background:#fff;
+    color:#000;
     width:100%;
     text-align: center;
     margin:auto;
@@ -18,6 +17,10 @@ h1{
     font-size:20px;
     font-weight:400;
     overflow:hidden;
+}
+#params{
+    background:#ddd;
+    color:#000;
 }
 .a{
     display:block;
@@ -27,6 +30,7 @@ h1{
     margin:auto;
     overflow:hidden;
     background:#fff;
+    color:#000;
     white-space: nowrap
 }
 .b{
@@ -36,6 +40,7 @@ h1{
     margin:auto;
     overflow:hidden;
     background:#fff;
+    color:#000;
     white-space: nowrap
 }
 .inputVal{
@@ -81,7 +86,8 @@ window.onload=init;
 </head>
 <body>
 <h1>猫マナー NekoManner</h1>
-<div style="background:#fff">
+<p>g200kg</p>
+<div id="params">
 <table>
 <tr><td>文字列</td><td><input id="text" value="猫マナー" oninput="edit(event)"/></td></tr>
 <tr><td>文字列繰り返し</td><td><input id="repeat1" type="range" min="1" max="20" value="8" oninput="edit(event)"/> <input id="repeatVal1" class="inputVal" value="8" disabled/></td></tr>
