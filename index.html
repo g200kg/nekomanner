@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body{
+    font-family: sans-serif;
+    background:#223344;
+}
+h1{
+    color:#fff;
+}
+#base{
+    background:#fff;
+    width:100%;
+    text-align: center;
+    margin:auto;
+    padding:40px 0;
+    font-size:20px;
+    font-weight:400;
+    overflow:hidden;
+}
+.a{
+    display:block;
+    transform-origin: center;
+    transform:rotateZ(-1deg);
+    width:700px;
+    margin:auto;
+    overflow:hidden;
+    background:#fff;
+    white-space: nowrap
+}
+.b{
+    transform-origin: center;
+    transform:rotateZ(1deg);
+    width:700px;
+    margin:auto;
+    overflow:hidden;
+    background:#fff;
+    white-space: nowrap
+}
+.inputVal{
+    width:50px;
+    text-align: center;
+    
+}
+</style>
+<script>
+function edit(e){
+    domRepeatVal1.value = domRepeat1.value;
+    domRepeatVal2.value = domRepeat2.value;
+    domAngleVal.value = domAngle.value;
+    domMarginVal.value = domMargin.value;
+    var text = domText.value;
+    var text2 = domText.value.split("").reverse().join("");
+    dom1.innerHTML = dom3.innerHTML = (text.repeat(domRepeat1.value)+"<br/>").repeat(domRepeat2.value);
+    dom2.innerHTML = dom4.innerHTML = (text2.repeat(domRepeat1.value)+"<br/>").repeat(domRepeat2.value);
+    dom1.style.margin = dom2.style.margin = dom3.style.margin = dom4.style.margin = domMargin.value+"px auto";
+    document.getElementById("1").style.transform = `rotateZ(${-domAngle.value}deg)`;
+    document.getElementById("2").style.transform = `rotateZ(${domAngle.value}deg)`;
+    document.getElementById("3").style.transform = `rotateZ(${-domAngle.value}deg)`;
+    document.getElementById("4").style.transform = `rotateZ(${domAngle.value}deg)`;
+}
+function init() {
+    domText = document.getElementById("text");
+    domRepeat1 = document.getElementById("repeat1");
+    domRepeatVal1 = document.getElementById("repeatVal1");
+    domRepeat2 = document.getElementById("repeat2");
+    domRepeatVal2 = document.getElementById("repeatVal2");
+    domAngle = document.getElementById("angle");
+    domAngleVal = document.getElementById("angleVal");
+    domMargin = document.getElementById("margin");
+    domMarginVal = document.getElementById("marginVal");
+    dom1 = document.getElementById("1");
+    dom2 = document.getElementById("2");
+    dom3 = document.getElementById("3");
+    dom4 = document.getElementById("4");
+    edit();
+}
+window.onload=init;
+</script>
+</head>
+<body>
+<h1>猫マナー NekoManner</h1>
+<div style="background:#fff">
+<table>
+<tr><td>文字列</td><td><input id="text" value="猫マナー" oninput="edit(event)"/></td></tr>
+<tr><td>文字列繰り返し</td><td><input id="repeat1" type="range" min="1" max="20" value="8" oninput="edit(event)"/> <input id="repeatVal1" class="inputVal" value="8" disabled/></td></tr>
+<tr><td>行繰り返し</td></td><td><input id="repeat2" type="range" min="1" max="10" value="3" oninput="edit(event)"/> <input id="repeatVal2" class="inputVal" value="3" disabled/></td></tr>
+<tr><td>段落間隔</td><td><input id="margin" type="range" min="0" max="120" value="0" oninput="edit(event)"> <input id="marginVal" class="inputVal" value="0" disabled/></td></tr>
+<tr><td>角度</td><td><input id="angle" type="range" min="-20" max="20" value="0" oninput="edit(event)"> <input id="angleVal" class="inputVal" value="0" disabled/></td></tr>
+</table>
+</div>
+<div id="base">
+ <div id="1" class="a"></div>
+ <div id="2" class="b"></div>
+ <div id="3" class="a"></div>
+ <div id="4" class="b"></div>
+</div>
+</body>
+</html>
+
